@@ -6,10 +6,20 @@ struct Deck {
 
 fn main() {
     
-    let suits = vec!["Hearts", "Spades", "Diamonds"];
-    let values = vec!["Ace", "Two", "Three"];
+    let suits = ["Hearts", "Spades", "Diamonds"];
+    let values = ["Ace", "Two", "Three"];
 
-    let deck = Deck { cards: vec![] };
+    let mut cards = vec![];    
+    
 
-    println!("Heres your deck: {:?}", deck);
+    for suit in suits {
+        for value in values {
+            let card = format!("{} of {}", value, suit);
+            cards.push(card);
+        }
+    }
+
+    let deck = Deck { cards };
+
+    println!("Heres your deck: {:#?}", deck);
 }
