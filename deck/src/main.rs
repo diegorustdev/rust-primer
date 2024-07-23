@@ -19,14 +19,19 @@ impl Deck {
                 cards.push(card);
             }
         }
+        Deck { cards }
+        }
 
-        Deck { cards }        
-
+    
+        fn shuffle(&self) {
+            
     }
 }
 
 fn main() {
     let deck = Deck::new();
+
+    deck.shuffle();
     
 
     println!("Heres your deck: {:#?}", deck);
