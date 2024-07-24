@@ -1,3 +1,29 @@
+/* 
+Este programa define uma estrutura para um baralho de cartas 
+e um método para embaralhar as cartas.
+
+1. Importa o módulo rand e as funções thread_rng e SliceRandom do crate rand, 
+que são usadas para gerar números aleatórios e 
+para embaralhar uma sequência, respectivamente.
+
+2. Define a estrutura Deck que contém um vetor de strings, 
+representando as cartas.
+
+3. Implementação do Deck:
+   - O método new cria um novo baralho de cartas. 
+   Ele itera sobre os naipes (suits) e valores (values), 
+   cria uma string para cada combinação e adiciona ao vetor cards.
+   - O método shuffle está definido, mas não implementado.
+
+4. A função main:
+   - Cria uma nova instância de Deck usando Deck::new.
+   - Chama o método shuffle (embora não faça nada porque está vazio).
+   - Imprime o baralho criado.
+*/
+
+use rand::{thread_rng, seq::SliceRandom};
+
+
 #[derive(Debug)]
 
 struct Deck {
@@ -23,13 +49,15 @@ impl Deck {
         }
 
     
-        fn shuffle(&self) {
+        fn shuffle(&mut self) {
+            let mut rng = thread_rng(); 
+            self.cards.shuffle(&mut rng);
             
     }
 }
 
 fn main() {
-    let deck = Deck::new();
+    let mut deck = Deck::new();
 
     deck.shuffle();
     
